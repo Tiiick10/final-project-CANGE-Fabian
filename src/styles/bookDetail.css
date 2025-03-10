@@ -1,0 +1,137 @@
+.book-container {
+    max-width: 65%;
+    margin: auto;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Image */
+
+.book-image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.book-image-container img {
+    width: 300px;
+    height: 63vh;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Infos */
+
+.book-info {
+    padding: 40px 80px;
+    flex: 2;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    height: 55vh;
+}
+
+.book-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.book-author {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Description limitée à 3 lignes */
+
+.book-description {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+    max-width: 700px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    transition: max-height 0.3s ease;
+}
+
+.book-description.expanded {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+}
+
+/* Voir plus*/
+
+/* .expand-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    color: blue;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 5px;
+} */
+
+/*  Infos supp */
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    color: #333;
+    font-weight: bold;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 0px 20px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+.detail-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.detail-value {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Genres (pills) */
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.genre-pill {
+    background-color: #328f7b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 35px;
+    font-size: 14px;
+    display: flex;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+}

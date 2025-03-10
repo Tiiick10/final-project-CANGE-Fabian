@@ -1,0 +1,137 @@
+/* Carrousel */
+
+.carousel {
+    background-color: #f0f0f0;
+}
+
+.carousel img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Cartes promos */
+
+.promotions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: white;
+    height: 250px;
+}
+
+.promo-card {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.promo1 {
+    background-color: #ffdd57;
+}
+
+.promo2 {
+    background-color: #57a1ff;
+}
+
+/* Liste des livres */
+
+.gridTitle {
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+.gridTitle2 {
+    text-align: center;
+    color: #333;
+    background-color: #f0f0f0;
+    font-size: 3em;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 20px;
+    background-color: #f0f0f0;
+    gap: 25px;
+}
+
+.book-link {
+    text-decoration: none;
+    color: black;
+}
+
+.book-card {
+    text-align: center;
+    padding: 0px 10px;
+    background-color: white;
+    color: black;
+    width: 70%;
+    height: 375px;
+    box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.5);
+}
+
+.book-card img {
+    width: 70%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* "Load More" */
+
+.load-more {
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.load-more button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Newsletter */
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 30px;
+    text-align: center;
+    color: #333;
+    gap: 20px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
