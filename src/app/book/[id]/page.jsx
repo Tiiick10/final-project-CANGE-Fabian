@@ -1,13 +1,18 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { fetchBookById } from "../../../lib/api"
 import { useParams } from "next/navigation"
 import "../../../styles/bookDetail.css"
+import { useFavorites } from "../../../context/FavoritesContext"
+import { FaHeart, FaStar } from "react-icons/fa"
+import Loader from "@/components/Loader"
 
 export default function BookDetail() {
+  
   const { id } = useParams()
+  const { favorites, toggleFavorite } = useFavorites()
   const { data: book, isLoading, error } = useQuery({
     queryKey: ["book", id],
     queryFn: () => fetchBookById(id),
@@ -15,8 +20,25 @@ export default function BookDetail() {
   })
 
   const [expanded, setExpanded] = useState(false)
+  const [rating, setRating] = useState(0)
 
-  if (isLoading) return <p>Chargement...</p>
+  useEffect(() => {
+    if (book && book.id) {
+      const storedRating = localStorage.getItem(`rating-${book.id}`)
+      if (storedRating) {
+        setRating(parseInt(storedRating, 10))
+      }
+    }
+  }, [book])
+
+  const handleRating = (newRating) => {
+    setRating(newRating)
+    localStorage.setItem(`rating-${book.id}`, newRating)
+  }
+
+  const isFavorite = book && book.id ? favorites.some((fav) => fav.id === book.id) : false;
+
+  if (isLoading) return <Loader />
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
@@ -27,6 +49,9 @@ export default function BookDetail() {
       </div>
 
       <div className="book-info">
+        <button className={`favorite-icon ${isFavorite ? "active" : ""}`} onClick={() => toggleFavorite(book)}>
+          <FaHeart />
+        </button>
         <h1 className="book-title">{book.title}</h1>
         <p className="book-author"><strong>By : </strong><i>{book.authors}</i></p>
 
@@ -35,9 +60,17 @@ export default function BookDetail() {
         <p className={`book-description ${expanded ? "expanded" : ""}`}>
           {book.description}
         </p>
-        {/* <button className="expand-button" onClick={() => setExpanded(!expanded)}>
-          {expanded ? "Voir moins" : "Voir plus"}
-        </button> */}
+
+        {/* Notation par étoiles */}
+        <div className="rating-container">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <FaStar
+              key={star}
+              className={`star ${star <= rating ? "active" : ""}`}
+              onClick={() => handleRating(star)}
+            />
+          ))}
+        </div>
 
         <div className="book-details">
           <div className="detail-row">

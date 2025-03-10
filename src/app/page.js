@@ -1,27 +1,28 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { fetchBooks } from "../lib/api"; 
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "../styles/home.css";
+import { useState } from "react"
+import { useQuery } from "@tanstack/react-query"
+import { fetchBooks } from "../lib/api" 
+import Link from "next/link"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "../styles/home.css"
+import Loader from "@/components/Loader"
 
 export default function HomePage() {
   const { data: books, isLoading, error } = useQuery({
     queryKey: ["books"],
     queryFn: fetchBooks,
-  });
+  })
 
-  const [visibleBooks, setVisibleBooks] = useState(5);
+  const [visibleBooks, setVisibleBooks] = useState(5)
 
   const loadMoreBooks = () => {
-    setVisibleBooks((prev) => prev + 5);
-  };
+    setVisibleBooks((prev) => prev + 5)
+  }
 
-  if (isLoading) return <p>Chargement...</p>;
-  if (error) return <p>Erreur : {error.message}</p>;
+  if (isLoading) return <Loader />
+  if (error) return <p>Erreur : {error.message}</p>
 
   return (
     <div>
@@ -83,8 +84,8 @@ export default function HomePage() {
       {/* Footer */}
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Bookshelf - Tous droits réservés.</p>
+        <p> © 2025 Bookshelf - Tous droits réservés.</p>
       </footer>
     </div>
-  );
+  )
 }

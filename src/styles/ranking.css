@@ -1,0 +1,69 @@
+.ranking-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Grid du classement */
+
+.ranking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Carte d'un livre classé */
+
+.ranking-card {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.ranking-card img {
+    width: 150px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ranking-link {
+    text-decoration: none;
+    color: black;
+}
+
+/* Affichage du classement */
+
+.rank-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: gold;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Étoiles */
+
+.rating-display {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.star {
+    font-size: 18px;
+    color: gray;
+}
+
+.star.active {
+    color: gold;
+}

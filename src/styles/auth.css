@@ -1,0 +1,31 @@
+.auth-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}

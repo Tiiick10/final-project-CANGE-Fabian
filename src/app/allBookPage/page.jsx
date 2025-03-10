@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchBooks } from "../../lib/api"
 import Link from "next/link"
 import "../../styles/allBooks.css"
+import Loader from "@/components/Loader"
 
 export default function AllBookPage() {
   const { data: books, isLoading, error } = useQuery({
@@ -15,7 +16,7 @@ export default function AllBookPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedAuthor, setSelectedAuthor] = useState("")
 
-  if (isLoading) return <p>Chargement...</p>
+  if (isLoading) return <Loader />
   if (error) return <p>Erreur : {error.message}</p>
 
   const filteredBooks = books.filter((book) =>

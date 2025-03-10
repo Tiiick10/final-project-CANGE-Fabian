@@ -24,6 +24,40 @@
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Icone Favoris */
+
+.favorite-icon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.favorite-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: black;
+}
+
+/* Le livre est en favoris */
+
+.favorite-icon.active {
+    background-color: red;
+}
+
+.favorite-icon.active svg {
+    fill: white;
+}
+
 /* Infos */
 
 .book-info {
@@ -32,6 +66,8 @@
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     height: 55vh;
+    position: relative;
+    padding-top: 40px;
 }
 
 .book-title {
@@ -134,4 +170,28 @@
     height: 20px;
     align-items: center;
     justify-content: center;
+}
+
+/* Notation */
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.star {
+    font-size: 22px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.star.active {
+    color: gold;
+}
+
+.star:hover {
+    color: orange;
 }
