@@ -1,30 +1,64 @@
-/* Cartes promos */
-
 .promotions {
     display: flex;
     justify-content: center;
     gap: 20px;
     background-color: white;
-    height: 250px;
+    padding: 20px;
     margin-top: 6%;
     margin-bottom: 6%;
 }
 
+/* Cartes promos */
+
 .promo-card {
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    height: 200px;
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 35%;
 }
 
-.promo1 {
-    background-color: #ffdd57;
+.promo-image:hover {
+    transform: scale(1.05);
 }
 
-.promo2 {
-    background-color: #57a1ff;
+/* Image des promos */
+
+.promo-image {
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Texte des promos */
+
+.promo-text {
+    padding: 15px;
+    flex: 1;
+}
+
+.promo-text h3 {
+    color: #328f7b;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.promo-text h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.promo-text p {
+    font-size: 14px;
+}
+
+.promo-price {
+    color: #328f7b;
+    font-weight: bold;
 }
 
 /* Liste des livres */
