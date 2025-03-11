@@ -1,11 +1,14 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import "../styles/navbar.css";
-import { useAuth } from "../context/AuthContext";
+import Link from "next/link"
+import "../styles/navbar.css"
+import { useAuth } from "../context/AuthContext"
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+
+  const { user, isLoading, logout } = useAuth()
+
+  if (isLoading) return null
 
   return (
     <nav className="navbar">
@@ -14,7 +17,6 @@ export default function Navbar() {
         <Link href="/allBookPage">Tous les livres</Link>
         <Link href="/favorites">Favoris</Link>
         <Link href="/ranking">Classement</Link>
-        <Link href="/login">Connexion</Link>
         <div className="auth-section">
           {user ? (
             <>
@@ -29,5 +31,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  );
+  )
 }

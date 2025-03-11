@@ -6,7 +6,6 @@ import { fetchBooks } from "../../lib/api"
 import Link from "next/link"
 import "../../styles/ranking.css"
 import { FaStar } from "react-icons/fa"
-import Loader from "@/components/Loader"
 
 export default function RankingPage() {
   const { data: books, isLoading, error } = useQuery({
@@ -17,30 +16,35 @@ export default function RankingPage() {
   const [rankedBooks, setRankedBooks] = useState([])
 
   useEffect(() => {
+    
     if (books) {
 
-      // Récupérer les notes des livres depuis localStorage et les trier
-
+      // Récupérer les notes des livres depuis localStorage
+      
       const booksWithRatings = books.map((book) => {
         const storedRating = localStorage.getItem(`rating-${book.id}`)
         return { ...book, userRating: storedRating ? parseInt(storedRating, 10) : 0 }
       })
 
+      // Filtrer les livres qui ont une note utilisateur
+
+      const filteredBooks = booksWithRatings.filter((book) => book.userRating > 0)
+
       // Trier les livres du plus haut au plus bas
 
-      const sortedBooks = booksWithRatings.sort((a, b) => b.userRating - a.userRating)
+      const sortedBooks = filteredBooks.sort((a, b) => b.userRating - a.userRating)
       setRankedBooks(sortedBooks)
     }
   }, [books])
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <p>Chargement...</p>
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
     <div className="ranking-container">
       <h1>Classement des livres</h1>
       {rankedBooks.length === 0 ? (
-        <p>Aucun livre classé pour l'instant.</p>
+        <p>Aucun livre noté par l'utilisateur.</p>
       ) : (
         <div className="ranking-grid">
           {rankedBooks.map((book, index) => (

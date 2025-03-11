@@ -20,3 +20,24 @@
     display: flex;
     gap: 15px;
 }
+
+.user-greeting {
+    font-weight: bold;
+}
+
+.logout-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-section {
+    display: flex;
+    gap: 15px;
+}

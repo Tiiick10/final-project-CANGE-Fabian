@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
 // Authentification
+
 const AuthContext = createContext()
 
 export function AuthProvider({ children }) {
