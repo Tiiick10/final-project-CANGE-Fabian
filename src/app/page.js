@@ -8,6 +8,8 @@ import "swiper/css"
 import "../styles/home.css"
 import Loader from "@/components/Loader"
 import Carousel from "@/components/Carousel"
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
+import { FaBook, FaGlobe } from "react-icons/fa"
 
 export default function HomePage() {
   const {
@@ -91,19 +93,53 @@ export default function HomePage() {
 
       {/* Join Our Community */}
 
+      <div className="newsletter-container">
       <div className="newsletter">
-        <h2>Rejoignez notre communauté</h2>
-        <p>
-          Inscrivez-vous pour recevoir les dernières nouveautés et promotions.
-        </p>
-        <input type="email" placeholder="Votre email" />
-        <button>S'inscrire</button>
+        <img src="img/footer/01.jpg" alt="Join Our Community" className="newsletter-image" />
+        <div className="newsletter-text">
+          <h2>Join Our Community</h2>
+          <p>Sign up & get 10% off your first books.</p>
+          <div className="newsletter-input">
+            <input type="email" placeholder="your email" />
+            <button>Subscribe</button>
+          </div>
+          <div className="newsletter-icons">
+            <FaFacebookF className="icon" />
+            <FaTwitter className="icon" />
+            <FaInstagram className="icon" />
+            <FaLinkedinIn className="icon" />
+            <FaYoutube className="icon" />
+          </div>
+        </div>
       </div>
+    </div>
 
       {/* Footer */}
 
       <footer className="footer">
-        <p> © 2025 Bookshelf - Tous droits réservés.</p>
+        <div className="footer-container">
+          <div className="footer-section">
+            <FaBook className="footer-icon" />
+            <div className="footer-text-group">
+              <h4>Book Information?</h4>
+              <p>Please send us an email at support@gmail.com</p>
+            </div>
+          </div>
+          <div className="footer-section">
+            <FaGlobe className="footer-icon" />
+            <div className="footer-text-group">
+              <h4>Book Information?</h4>
+              <p>Please send us an email at support@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="footer-bottom">
+          <p className="footer-brand">Bookshelf</p>
+          <p className="footer-text">
+            © 2023 All rights reserved. Made with love by 🤍 Ryad
+          </p>
+        </div>
       </footer>
     </div>
   )
