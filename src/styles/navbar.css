@@ -49,6 +49,14 @@
     width: 20%;
 }
 
+/* Masquer la barre de recherche visuellement */
+
+.search-bar.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .search-bar input {
     border: none;
     background: none;
@@ -72,7 +80,7 @@
 }
 
 .fav-icon:hover {
-    color: red;
+    color: #328f7b;
 }
 
 /* Sidebar gauche (Menu) */
@@ -255,6 +263,7 @@
 }
 
 /* Boutons supprimé/détail */
+
 .favorite-actions {
     display: flex;
     gap: 10px;

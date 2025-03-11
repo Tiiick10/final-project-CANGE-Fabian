@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { useAuth } from "../context/AuthContext"
 import { useFavorites } from "../context/FavoritesContext"
 import { FaBars, FaTimes, FaHeart, FaHeartBroken, FaBook, FaPhoneAlt, FaSearch } from "react-icons/fa"
@@ -12,6 +13,8 @@ export default function Navbar() {
   const { favorites, toggleFavorite } = useFavorites()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false)
+
+  const pathname = usePathname() // Détecte la page actuelle
 
   if (isLoading) return null
 
@@ -33,15 +36,14 @@ export default function Navbar() {
       <nav className="navbar">
         <div className="menuAndLogo">
           <FaBars className="menu-icon" onClick={() => setIsMenuOpen(true)} />
-
           <Link href="/" className="logo">
             <h1>BOOKSHELF.</h1>
           </Link>
         </div>
 
-        {/* Barre de recherche */}
-
-        <div className="search-bar">
+        {/* La barre de recherche reste mais devient invisible sur allBookPage */}
+        
+        <div className={`search-bar ${ pathname === "/allBookPage" ? "hidden" : "" }`}>
           <FaSearch className="search-icon" />
           <input type="text" placeholder="Search your book here" />
         </div>
@@ -81,8 +83,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/" onClick={() => setIsMenuOpen(false)}>
-              Return to Home
+            <Link href="/ranking" onClick={() => setIsMenuOpen(false)}>
+              Rankings
             </Link>
           </li>
         </ul>
@@ -108,6 +110,7 @@ export default function Navbar() {
       </div>
 
       {/* Menu Favoris */}
+
       <div className={`favorites-sidebar ${isFavoritesOpen ? "open" : ""}`}>
         <FaTimes
           className="close-icon"

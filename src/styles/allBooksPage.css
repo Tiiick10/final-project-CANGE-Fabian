@@ -1,0 +1,226 @@
+.all-books-container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Sidebar des filtres */
+
+.filters-sidebar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 750px;
+    background: white;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    gap: 10px;
+}
+
+/* Recherche */
+
+.searchBarBooks {
+    width: 90%;
+    height: 25px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+}
+
+.searchBarBooks:hover {
+    box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.5);
+}
+
+.searchBarBooks:focus {
+    background-color: rgb(185, 185, 185);
+    outline: none;
+}
+
+/* Liste des catégories */
+
+.filters-sidebar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
+
+.filters-sidebar li {
+    padding: 8px;
+    cursor: pointer;
+    transition: underline 0.3s;
+}
+
+.filters-sidebar li:hover, .filters-sidebar li.active {
+    text-decoration: underline;
+    color: #328f7b;
+    border-radius: 5px;
+}
+
+/* Slider */
+
+.rating-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.rating-value {
+    font-weight: bold;
+    color: #328f7b;
+    margin-bottom: 5px;
+}
+
+/* Customisation du slider */
+
+.custom-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Curseur personnalisé */
+
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #328f7b;
+    border-radius: 20%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #2a7765;
+}
+
+/* Section des livres */
+
+.books-content {
+    flex-grow: 1;
+}
+
+/* Changer la vue */
+
+.view-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.view-toggle button {
+    background: #ddd;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.view-toggle button.active {
+    background: #328f7b;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Vue en grille */
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    padding: 20px;
+    gap: 25px;
+}
+
+/* Vue en liste */
+
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Carte du livre */
+
+.book-card {
+    text-align: center;
+    padding: 0px 10px;
+    background-color: white;
+    color: black;
+    width: 70%;
+    height: 375px;
+    box-shadow: 3px 3px 12px 0px rgba(0,0,0,0.5);
+    margin: auto;
+}
+
+.book-card img {
+    width: 70%;
+    height: 275px;
+    object-fit: cover;
+}
+
+/* Info du livre */
+
+.book-info {
+    margin-top: 10px;
+}
+
+.book-info h4 {
+    margin: 5px 0;
+}
+
+.book-description {
+    font-size: 14px;
+    color: #555;
+    max-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Conteneur pour le tri */
+
+.sort-and-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Style du select */
+
+.sort-select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+
+.sort-select:hover {
+    border-color: #328f7b;
+}
