@@ -4,10 +4,10 @@ import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { fetchBooks } from "../lib/api" 
 import Link from "next/link"
-import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "../styles/home.css"
 import Loader from "@/components/Loader"
+import Carousel from "@/components/Carousel"
 
 export default function HomePage() {
   const { data: books, isLoading, error } = useQuery({
@@ -25,15 +25,10 @@ export default function HomePage() {
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
+
     <div>
-      <Swiper className="carousel" spaceBetween={20} slidesPerView={1} loop>
-        <SwiperSlide>
-          <img src="/carousel1.jpg" alt="Promo 1" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/carousel2.jpg" alt="Promo 2" />
-        </SwiperSlide>
-      </Swiper>
+      
+      <Carousel />
 
       {/* Cartes promotions */}
 
