@@ -5,11 +5,18 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchBooks } from "../../lib/api"
 import "../../styles/allBooksPage.css"
 import Link from "next/link"
-import { FaThLarge, FaList } from "react-icons/fa"
+import { FaHeart, FaBook, FaStar, FaThLarge, FaList } from "react-icons/fa"
+import { useFavorites } from "../../context/FavoritesContext"
 import Loader from "@/components/Loader"
 
 export default function AllBooksPage() {
-  const { data: books, isLoading, error } = useQuery({
+  const { favorites, toggleFavorite } = useFavorites()
+
+  const {
+    data: books,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["books"],
     queryFn: fetchBooks,
   })
@@ -23,11 +30,14 @@ export default function AllBooksPage() {
   if (isLoading) return <Loader />
   if (error) return <p>Erreur : {error.message}</p>
 
-  // Filtrage des livres selon les critères*
+  // Filtrage des livres
 
   let filteredBooks = books.filter((book) => {
-    const matchesName = book.title.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "All" || book.genres.includes(selectedCategory)
+    const matchesName = book.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+    const matchesCategory =
+      selectedCategory === "All" || book.genres.includes(selectedCategory)
     const matchesRating = book.rating >= minRating
     return matchesName && matchesCategory && matchesRating
   })
@@ -41,9 +51,12 @@ export default function AllBooksPage() {
   })
 
   return (
-    <div className="all-books-container">
-      
-      {/* 🔍 Barre latérale des filtres */}
+    <div
+      className={`all-books-container ${
+        viewMode === "list" ? "detail-view" : "grid-view"
+      }`}
+    >
+      {/* Barre latérale des filtres */}
 
       <aside className="filters-sidebar">
         <input
@@ -54,10 +67,22 @@ export default function AllBooksPage() {
           className="searchBarBooks"
         />
 
-        <h3>Category {selectedCategory}</h3>
+        <h3>Category {selectedCategory} </h3>
         <ul>
-          {["All", "Classics", "Fiction", "Historical", "Science Fiction", "Fantasy", "Young Adult"].map((category) => (
-            <li key={category} className={selectedCategory === category ? "active" : ""} onClick={() => setSelectedCategory(category)}>
+          {[
+            "All",
+            "Classics",
+            "Fiction",
+            "Historical",
+            "Science Fiction",
+            "Fantasy",
+            "Young Adult",
+          ].map((category) => (
+            <li
+              key={category}
+              className={selectedCategory === category ? "active" : ""}
+              onClick={() => setSelectedCategory(category)}
+            >
               {category}
             </li>
           ))}
@@ -81,44 +106,136 @@ export default function AllBooksPage() {
       {/* Contenu principal */}
 
       <div className="books-content">
-        
-        {/* Sélecteur de tri par rating */}
+        {/* Sélecteur de tri + boutons de disposition */}
 
         <div className="sort-and-view">
-          <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="sort-select">
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="sort-select"
+          >
             <option value="rating-down">Rating to down</option>
             <option value="rating-up">Rating to up</option>
           </select>
 
-          {/* Changer l'affichage */}
+          {/* Boutons de disposition */}
 
           <div className="view-toggle">
-            <button className={viewMode === "grid" ? "active" : ""} onClick={() => setViewMode("grid")}>
+            <button
+              className={viewMode === "grid" ? "active" : ""}
+              onClick={() => setViewMode("grid")}
+            >
               <FaThLarge />
             </button>
-            <button className={viewMode === "list" ? "active" : ""} onClick={() => setViewMode("list")}>
+            <button
+              className={viewMode === "list" ? "active" : ""}
+              onClick={() => setViewMode("list")}
+            >
               <FaList />
             </button>
           </div>
         </div>
 
-
         {/* Liste des livres */}
 
-        <div className={viewMode === "grid" ? "books-grid" : "books-list"}>
-          {filteredBooks.map((book) => (
-            <div key={book.id} className="book-card">
-              <Link href={`/book/${book.id}`}>
-                <img src={book.image_url} alt={book.title} />
-              </Link>
-              <div className="book-info">
-                <h4>{book.title}</h4>
-                <p>By: <i>{book.authors}</i></p>
-                {viewMode === "list" && <p className="book-description">{book.description}</p>}
-              </div>
-            </div>
-          ))}
-        </div>
+        {viewMode === "grid" ? (
+          <div className="books-grid">
+            {filteredBooks.map((book) => {
+              const isFavorite = favorites.some((fav) => fav.id === book.id)
+
+              return (
+                <div key={book.id} className="book-card">
+                  <Link href={`/book/${book.id}`}>
+                    <img
+                      src={book.image_url}
+                      alt={book.title}
+                      className="bookImg"
+                    />
+                  </Link>
+
+                  <div className="book-info">
+                    <h4>{book.title}</h4>
+                    <p>
+                      By: <i>{book.authors}</i>
+                    </p>
+                  </div>
+
+                  {/* Boutons favoris et détails */}
+
+                  <div className="book-actions">
+                    <FaHeart
+                      className={`action-icon ${
+                        isFavorite ? "favorite-active" : ""
+                      }`}
+                      onClick={() => toggleFavorite(book)}
+                    />
+                    <Link href={`/book/${book.id}`}>
+                      <FaBook className="action-icon" />
+                    </Link>
+                  </div>
+
+                  {/* Overlay affichant le rating et le nombre d'avis */}
+
+                  <div className="book-overlay">
+                    <span className="book-rating">
+                      <FaStar color="#FFD700" /> {book.rating.toFixed(2)} / 5
+                    </span>
+                    <span className="book-reviews">
+                      {" "}
+                      On {book.rating_count} advises
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <div className="books-list">
+            {filteredBooks.map((book) => {
+              const isFavorite = favorites.some((fav) => fav.id === book.id)
+
+              return (
+                <div key={book.id} className="list-view">
+                  {/* 📌 Conteneur Gauche - Image + Actions */}
+                  <div className="list-left">
+                    {/* Image du livre */}
+                    <img src={book.image_url} alt={book.title} />
+
+                    {/* Rating en haut de l'image */}
+                    <span className="book-rating">
+                      <FaStar color="#FFD700" /> {book.rating.toFixed(2)} / 5
+                    </span>
+
+                    {/* Boutons Favoris et Détail */}
+                    <div className="book-actions">
+                      <FaBook
+                        className="action-icon"
+                        onClick={() =>
+                          (window.location.href = `/book/${book.id}`)
+                        }
+                      />
+                      <FaHeart
+                        className={`action-icon ${
+                          isFavorite ? "favorite-active" : ""
+                        }`}
+                        onClick={() => toggleFavorite(book)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* 📌 Conteneur Droit - Texte */}
+                  <div className="list-right">
+                    <h4>{book.title}</h4>
+                    <p>
+                      By: <i>{book.authors}</i>
+                    </p>
+                    <p className="book-description">{book.description}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
     </div>
   )

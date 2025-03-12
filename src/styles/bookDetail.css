@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
-    background: #f9f9f9;
     color: #333;
 }
 
@@ -18,7 +17,7 @@
 }
 
 .book-image-container img {
-    width: 300px;
+    width: 350px;
     height: 63vh;
     border-radius: 10px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);

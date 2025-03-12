@@ -5,7 +5,8 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { useAuth } from "../context/AuthContext"
 import { useFavorites } from "../context/FavoritesContext"
-import { FaBars, FaTimes, FaHeart, FaHeartBroken, FaBook, FaPhoneAlt, FaSearch } from "react-icons/fa"
+import { FaTimes, FaHeart, FaHeartBroken, FaBook, FaPhoneAlt, FaSearch } from "react-icons/fa"
+import { CgMenuLeft } from "react-icons/cg";
 import "../styles/navbar.css"
 
 export default function Navbar() {
@@ -35,7 +36,7 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="menuAndLogo">
-          <FaBars className="menu-icon" onClick={() => setIsMenuOpen(true)} />
+          <CgMenuLeft className="menu-icon" onClick={() => setIsMenuOpen(true)} />
           <Link href="/" className="logo">
             <h1>BOOKSHELF.</h1>
           </Link>
