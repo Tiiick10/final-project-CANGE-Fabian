@@ -31,7 +31,7 @@ export default function LoginPage() {
         <input type="password" placeholder="Mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <button type="submit">Se connecter</button>
       </form>
-      <p>Pas encore de compte ? <a href="/register">S'inscrire</a></p>
+      <p>Pas encore de compte ? <a href="/register">S&apos;inscrire</a></p>
     </div>
   )
 }

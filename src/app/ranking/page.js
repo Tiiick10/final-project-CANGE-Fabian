@@ -47,7 +47,7 @@ export default function RankingPage() {
     <div className="ranking-container">
       <h1>Classement des livres</h1>
       {rankedBooks.length === 0 ? (
-        <p>Aucun livre noté par l'utilisateur.</p>
+        <p>Aucun livre noté par l&apos;utilisateur.</p>
       ) : (
         <div className="ranking-grid">
           {rankedBooks.map((book, index) => (
