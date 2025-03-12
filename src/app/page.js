@@ -137,7 +137,7 @@ export default function HomePage() {
         <div className="footer-bottom">
           <p className="footer-brand">Bookshelf</p>
           <p className="footer-text">
-            © 2023 All rights reserved. Made with love by 🤍 Ryad
+            © 2025 All rights reserved. Made with love by 🤍 Fabian
           </p>
         </div>
       </footer>
