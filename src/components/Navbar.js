@@ -136,11 +136,11 @@ export default function Navbar() {
                   <p>{book.title}</p>
                   <div className="favorite-actions">
                     <FaHeartBroken
-                      className="action-icon"
+                      className="noFav-icon"
                       onClick={() => toggleFavorite(book)}
                     />
                     <Link href={`/book/${book.id}`}>
-                      <FaBook className="action-icon" />
+                      <FaBook className="favBook-icon" />
                     </Link>
                   </div>
                 </div>

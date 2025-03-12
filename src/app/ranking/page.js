@@ -6,6 +6,8 @@ import { fetchBooks } from "../../lib/api"
 import Link from "next/link"
 import "../../styles/ranking.css"
 import { FaStar } from "react-icons/fa"
+import Newsletter from "@/components/Newsletter"
+import Footer from "@/components/Footer"
 
 export default function RankingPage() {
   const { data: books, isLoading, error } = useQuery({
@@ -41,6 +43,7 @@ export default function RankingPage() {
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
+    <>
     <div className="ranking-container">
       <h1>Classement des livres</h1>
       {rankedBooks.length === 0 ? (
@@ -64,5 +67,8 @@ export default function RankingPage() {
         </div>
       )}
     </div>
+    <Newsletter />
+    <Footer />
+    </>
   )
 }

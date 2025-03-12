@@ -8,6 +8,8 @@ import "../../../styles/bookDetail.css"
 import { useFavorites } from "../../../context/FavoritesContext"
 import { FaHeart, FaStar } from "react-icons/fa"
 import Loader from "@/components/Loader"
+import Newsletter from "@/components/Newsletter"
+import Footer from "@/components/Footer"
 
 export default function BookDetail() {
   
@@ -42,6 +44,7 @@ export default function BookDetail() {
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
+    <>
     <div className="book-container">
     
       <div className="book-image-container">
@@ -62,6 +65,7 @@ export default function BookDetail() {
         </p>
 
         {/* Notation par étoiles */}
+
         <div className="rating-container">
           {[1, 2, 3, 4, 5].map((star) => (
             <FaStar
@@ -102,5 +106,8 @@ export default function BookDetail() {
         </div>
       </div>
     </div>
+    <Newsletter />
+    <Footer />
+    </>
   )
 }

@@ -8,6 +8,8 @@ import Link from "next/link"
 import { FaHeart, FaBook, FaStar, FaThLarge, FaList } from "react-icons/fa"
 import { useFavorites } from "../../context/FavoritesContext"
 import Loader from "@/components/Loader"
+import Newsletter from "@/components/Newsletter"
+import Footer from "@/components/Footer"
 
 export default function AllBooksPage() {
   const { favorites, toggleFavorite } = useFavorites()
@@ -51,11 +53,13 @@ export default function AllBooksPage() {
   })
 
   return (
+    <>
     <div
       className={`all-books-container ${
         viewMode === "list" ? "detail-view" : "grid-view"
       }`}
-    >
+      >
+
       {/* Barre latérale des filtres */}
 
       <aside className="filters-sidebar">
@@ -106,6 +110,7 @@ export default function AllBooksPage() {
       {/* Contenu principal */}
 
       <div className="books-content">
+
         {/* Sélecteur de tri + boutons de disposition */}
 
         <div className="sort-and-view">
@@ -164,13 +169,13 @@ export default function AllBooksPage() {
 
                   <div className="book-actions">
                     <FaHeart
-                      className={`action-icon ${
+                      className={`heart-icon ${
                         isFavorite ? "favorite-active" : ""
                       }`}
                       onClick={() => toggleFavorite(book)}
                     />
                     <Link href={`/book/${book.id}`}>
-                      <FaBook className="action-icon" />
+                      <FaBook className="book-icon" />
                     </Link>
                   </div>
 
@@ -195,27 +200,32 @@ export default function AllBooksPage() {
               const isFavorite = favorites.some((fav) => fav.id === book.id)
 
               return (
+
                 <div key={book.id} className="list-view">
-                  {/* 📌 Conteneur Gauche - Image + Actions */}
+
+                  {/* Image + Favoris / détails */}
+
                   <div className="list-left">
-                    {/* Image du livre */}
+
                     <img src={book.image_url} alt={book.title} />
 
                     {/* Rating en haut de l'image */}
+
                     <span className="book-rating">
-                      <FaStar color="#FFD700" /> {book.rating.toFixed(2)} / 5
+                      {book.rating.toFixed(2)} / 5 <FaStar color="black" /> 
                     </span>
 
                     {/* Boutons Favoris et Détail */}
-                    <div className="book-actions">
+
+                    <div className="book-actions-list">
                       <FaBook
-                        className="action-icon"
+                        className="action-icon-book"
                         onClick={() =>
                           (window.location.href = `/book/${book.id}`)
                         }
                       />
                       <FaHeart
-                        className={`action-icon ${
+                        className={`action-icon-fav ${
                           isFavorite ? "favorite-active" : ""
                         }`}
                         onClick={() => toggleFavorite(book)}
@@ -223,13 +233,14 @@ export default function AllBooksPage() {
                     </div>
                   </div>
 
-                  {/* 📌 Conteneur Droit - Texte */}
+                  {/* Description / Auteur */}
+                  
                   <div className="list-right">
                     <h4>{book.title}</h4>
                     <p>
                       By: <i>{book.authors}</i>
                     </p>
-                    <p className="book-description">{book.description}</p>
+                    <p className="book-description-list">{book.description}</p>
                   </div>
                 </div>
               )
@@ -238,5 +249,8 @@ export default function AllBooksPage() {
         )}
       </div>
     </div>
+    <Newsletter />
+    <Footer />
+    </>
   )
 }

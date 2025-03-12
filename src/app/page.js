@@ -8,8 +8,8 @@ import "swiper/css"
 import "../styles/home.css"
 import Loader from "@/components/Loader"
 import Carousel from "@/components/Carousel"
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa"
-import { FaBook, FaGlobe } from "react-icons/fa"
+import Newsletter from "@/components/Newsletter"
+import Footer from "@/components/Footer"
 
 export default function HomePage() {
   const {
@@ -64,9 +64,9 @@ export default function HomePage() {
 
       <h4 className="gridTitle">BOOKS GALLERY</h4>
       <h1 className="gridTitle2">Popular Books</h1>
-      <div className="books-grid">
+      <div className="homeBooks-grid">
         {books?.slice(0, visibleBooks).map((book) => (
-          <div key={book.id} className="book-card">
+          <div key={book.id} className="homeBook-card">
             <Link href={`/book/${book.id}`} className="book-link">
               <img
                 src={book.image_url}
@@ -93,54 +93,12 @@ export default function HomePage() {
 
       {/* Join Our Community */}
 
-      <div className="newsletter-container">
-      <div className="newsletter">
-        <img src="img/footer/01.jpg" alt="Join Our Community" className="newsletter-image" />
-        <div className="newsletter-text">
-          <h2>Join Our Community</h2>
-          <p>Sign up & get 10% off your first books.</p>
-          <div className="newsletter-input">
-            <input type="email" placeholder="your email" />
-            <button>Subscribe</button>
-          </div>
-          <div className="newsletter-icons">
-            <FaFacebookF className="icon" />
-            <FaTwitter className="icon" />
-            <FaInstagram className="icon" />
-            <FaLinkedinIn className="icon" />
-            <FaYoutube className="icon" />
-          </div>
-        </div>
-      </div>
-    </div>
+      <Newsletter />
 
       {/* Footer */}
 
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-section">
-            <FaBook className="footer-icon" />
-            <div className="footer-text-group">
-              <h4>Book Information?</h4>
-              <p>Please send us an email at support@gmail.com</p>
-            </div>
-          </div>
-          <div className="footer-section">
-            <FaGlobe className="footer-icon" />
-            <div className="footer-text-group">
-              <h4>Book Information?</h4>
-              <p>Please send us an email at support@gmail.com</p>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div className="footer-bottom">
-          <p className="footer-brand">Bookshelf</p>
-          <p className="footer-text">
-            © 2025 All rights reserved. Made with love by 🤍 Fabian
-          </p>
-        </div>
-      </footer>
+      <Footer/>
+
     </div>
   )
 }

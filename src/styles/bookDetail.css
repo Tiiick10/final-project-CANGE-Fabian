@@ -17,8 +17,8 @@
 }
 
 .book-image-container img {
-    width: 350px;
-    height: 63vh;
+    width: 375px;
+    height: 68vh;
     border-radius: 10px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -64,7 +64,7 @@
     flex: 2;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    height: 55vh;
+    height: 60vh;
     position: relative;
     padding-top: 40px;
 }

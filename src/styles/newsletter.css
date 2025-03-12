@@ -1,0 +1,105 @@
+/* Newsletter container */
+
+.newsletter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 40px 0;
+}
+
+/* Newsletter */
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 900px;
+}
+
+/* Image */
+
+.newsletter-image {
+    width: 40%;
+    object-fit: cover;
+}
+
+/* Texte  */
+
+.newsletter-text {
+    padding: 20px;
+    flex: 1;
+    text-align: left;
+}
+
+.newsletter-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.newsletter-text p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Input */
+
+.newsletter-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+}
+
+.newsletter-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-input button {
+    padding: 10px 20px;
+    background-color: #328f7b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.newsletter-input button:hover {
+    background-color: #25695a;
+}
+
+/* Icônes des réseaux sociaux */
+
+.newsletter-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #328f7b;
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 20px;
+    background-color: #328f7b;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.icon:hover {
+    color: #1d5a50;
+}
