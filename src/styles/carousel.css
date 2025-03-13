@@ -165,3 +165,48 @@
 .dot:hover {
     background-color: gray;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .image-content img {
+        width: 80%;
+        max-width: 250px;
+        margin: auto;
+    }
+
+    .carousel-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .text-content h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Écrans larges : 1025px - 2560px */
+@media (min-width: 1440px) {
+    .carousel-container {
+        max-width: 1440px;
+    }
+}

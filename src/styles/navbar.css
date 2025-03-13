@@ -299,3 +299,42 @@
 .favorite-item.hovered .favorite-actions {
     opacity: 1;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-icon {
+        font-size: 22px;
+    }
+
+    .right-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 1440px) {
+    .navbar {
+        padding: 0px;
+    }
+}

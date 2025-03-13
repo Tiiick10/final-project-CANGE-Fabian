@@ -123,3 +123,40 @@
     border: none;
     cursor: pointer;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .promotions {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .promo-card {
+        width: 90%;
+    }
+
+    .homeBooks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .homeBooks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1440px) {
+    .homeBooks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .homeBook-card {
+        width: 70%;
+    }
+
+    .homeBook-card img {
+        width: 50%;
+    }
+}

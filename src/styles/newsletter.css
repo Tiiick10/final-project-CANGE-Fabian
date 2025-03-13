@@ -103,3 +103,27 @@
 .icon:hover {
     color: #1d5a50;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .newsletter {
+        flex-direction: column;
+        text-align: center;
+        width: 95%;
+    }
+
+    .newsletter-image {
+        width: 100%;
+    }
+
+    .newsletter-text {
+        padding: 10px;
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .newsletter {
+        width: 80%;
+    }
+}

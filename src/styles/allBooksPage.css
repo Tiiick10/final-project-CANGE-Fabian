@@ -437,3 +437,65 @@
     color: red;
     background-color: white;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .all-books-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .books-list {
+        width: 100%;
+        padding: 0;
+    }
+
+    .list-view {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .list-left img {
+        width: 100px;
+        height: 160px;
+    }
+
+    .list-right {
+        padding-left: 0;
+    }
+
+    .sort-and-view {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .books-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .filters-sidebar {
+        min-width: 40%;
+    }
+}
+
+/* Écrans larges : 1025px - 2560px */
+@media (min-width: 1440px) {
+    .books-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

@@ -73,3 +73,33 @@
 .footer-text {
     font-size: 14px;
 }
+
+/* Mobile : 320px - 768px */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .footer-logo img {
+        width: 80px;
+    }
+}
+
+/* Tablettes : 769px - 1024px */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .footer {
+        padding: 0px;
+    }
+
+    .footer-bottom {
+        gap: 25%;
+    }
+}
