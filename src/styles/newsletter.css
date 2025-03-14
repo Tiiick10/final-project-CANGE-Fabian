@@ -104,25 +104,67 @@
     color: #1d5a50;
 }
 
-/* Mobile : 320px - 768px */
-@media (max-width: 768px) {
+/* Responsive */
+
+@media (min-width: 425px) and (max-width: 767px) {
+
     .newsletter {
         flex-direction: column;
         text-align: center;
-        width: 95%;
+        align-items: center;
+        width: 80%;
+    }
+    
+    .newsletter-image {
+        width: 100%;
+    }
+    
+    .newsletter-text {
+        padding: 10px;
+    }
+
+    .newsletter-icons {
+        gap: 35px;
+    }
+    
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .newsletter {
+        text-align: center;
+        width: 100%;
     }
 
     .newsletter-image {
-        width: 100%;
+        width: 50%;
     }
 
     .newsletter-text {
         padding: 10px;
     }
+
+    .newsletter-input {
+        width: 100%;
+    }
+
+    .newsletter-input button {
+        width: 40%;
+        padding: 10;
+    }
+
+    .newsletter-input input {
+        padding: 0;
+    }
+
+    .newsletter-icons {
+        gap: 25px;
+    }
+
 }
 
-/* Tablettes : 769px - 1024px */
-@media (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
+
     .newsletter {
         width: 80%;
     }

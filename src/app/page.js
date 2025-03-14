@@ -31,7 +31,9 @@ export default function HomePage() {
   if (error) return <p>Erreur : {error.message}</p>
 
   return (
-    <div>
+
+    <div className="home-container">
+
       <Carousel />
 
       {/* Cartes promotions */}

@@ -166,8 +166,10 @@
     background-color: gray;
 }
 
-/* Mobile : 320px - 768px */
-@media (max-width: 768px) {
+/* Responsive */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
     .carousel-slide {
         flex-direction: column;
         text-align: center;
@@ -197,16 +199,16 @@
     }
 }
 
-/* Tablettes : 769px - 1024px */
-@media (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+
     .text-content h1 {
         font-size: 2.5em;
     }
 }
 
-/* Écrans larges : 1025px - 2560px */
 @media (min-width: 1440px) {
+
     .carousel-container {
-        max-width: 1440px;
+        width: 100%;
     }
 }

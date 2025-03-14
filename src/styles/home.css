@@ -1,3 +1,7 @@
+.home-container {
+    min-height: 100vh;
+}
+
 .promotions {
     display: flex;
     justify-content: center;
@@ -124,8 +128,10 @@
     cursor: pointer;
 }
 
-/* Mobile : 320px - 768px */
-@media (max-width: 768px) {
+/* Responsive */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
     .promotions {
         flex-direction: column;
         height: auto;
@@ -140,23 +146,25 @@
     }
 }
 
-/* Tablettes : 769px - 1024px */
-@media (max-width: 1024px) {
-    .homeBooks-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
+    
     .homeBooks-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
     .homeBook-card {
-        width: 70%;
+        width: 90%;
     }
 
-    .homeBook-card img {
-        width: 50%;
+    .promotions {
+        flex-direction: column;
+        height: auto;
     }
+
+    .promo-card {
+        width: 100%;
+    }
+
 }
+
+
