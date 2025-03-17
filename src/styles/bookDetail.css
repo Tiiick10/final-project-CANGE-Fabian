@@ -18,7 +18,7 @@
 
 .book-image-container img {
     width: 375px;
-    height: 68vh;
+    min-height: 72vh;
     border-radius: 10px;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -64,13 +64,14 @@
     flex: 2;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    height: 60vh;
+    max-width: 45%;
+    min-height: 60vh;
     position: relative;
     padding-top: 40px;
 }
 
 .book-title {
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: center;
@@ -98,10 +99,10 @@
     transition: max-height 0.3s ease;
 }
 
-.book-description.expanded {
+/* .book-description.expanded {
     -webkit-line-clamp: unset;
     line-clamp: unset;
-}
+} */
 
 /* Voir plus*/
 
@@ -197,6 +198,48 @@
 
 /* Responsive */
 
+@media (min-width: 425px) and (max-width: 767px) {
+
+    .book-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-image-container img {
+        width: 85%;
+    }
+
+    .book-info {
+        text-align: center;
+        width: 100%;
+        padding: 20px 100px;
+    }
+
+    .book-description {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        line-clamp: 8;
+        -webkit-box-orient: vertical;
+    }
+
+    .book-details {
+        flex-direction: column;
+    }
+
+    .detail-row {
+        flex-direction: column;
+    }
+
+    .genre-pill {
+        height: 30px;
+    }
+
+    .book-title {
+        font-size: 1.5em;
+    }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
 
     .book-container {
@@ -238,5 +281,10 @@
     
     .book-container {
         max-width: 1200px;
+    }
+
+    .book-image-container img {
+        max-width: 350px;
+        height: 90vh;
     }
 }

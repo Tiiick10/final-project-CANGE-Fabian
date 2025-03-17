@@ -72,13 +72,26 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
+    .ranking-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .ranking-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
 
     .ranking-card img {
         width: 100px;
+    }
+
+    .ranking-card {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
     }
 
     .rank-number {

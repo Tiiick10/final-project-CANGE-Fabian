@@ -307,35 +307,45 @@
     .navbar {
         flex-direction: column;
         gap: 10px;
+        font-size: 0.9em;
     }
 
     .nav-links {
         flex-direction: column;
         text-align: center;
-    }
-
-    .menu-icon {
-        font-size: 22px;
     }
 
     .right-section {
         text-align: center;
     }
+
+    .search-bar {
+        display: none;
+    }
+
+    .menu-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    .menuAndLogo {
+        width: 100%;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
 
+    .search-bar {
+        display: none;
+    }
+
     .navbar {
-        gap: 10px;
+        gap: 20%;
     }
 
     .nav-links {
         flex-direction: column;
         text-align: center;
-    }
-
-    .menu-icon {
-        font-size: 22px;
     }
 
     .right-section {
@@ -344,6 +354,15 @@
 
     .favorites-sidebar {
         width: 200px;
+    }
+
+    .menu-icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    .menuAndLogo {
+        width: 35%;
     }
 }
 

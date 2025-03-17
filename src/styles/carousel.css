@@ -142,7 +142,7 @@
 .carousel-indicators {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .dot {
@@ -168,38 +168,26 @@
 
 /* Responsive */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 425px) and (max-width: 767px) {
 
-    .carousel-slide {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .text-content {
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .image-content img {
-        width: 80%;
-        max-width: 250px;
-        margin: auto;
-    }
-
-    .carousel-arrow {
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
-    }
-
-    .dot {
-        width: 8px;
-        height: 8px;
+    .carousel-container {
+        display: none;
     }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .carousel-container {
+        display: none;
+    }
+
+}
+
 @media (min-width: 1024px) and (max-width: 1439px) {
+
+    .carousel-container {
+        display: none;
+    }
 
     .text-content h1 {
         font-size: 2.5em;

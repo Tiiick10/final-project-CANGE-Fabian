@@ -130,11 +130,57 @@
 
 /* Responsive */
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 425px) and (max-width: 767px) {
+
+    .heroBanner {
+        max-width: 100%;
+    }
 
     .promotions {
         flex-direction: column;
         height: auto;
+    }
+
+    .promo-card {
+        width: 100%;
+        height: 20vh;
+    }
+
+    .promo-card h2 {
+        font-size: 0.8em;
+    }
+
+    .promo-image {
+        width: 50%;
+        height: 20vh;
+    }
+
+    .homeBooks-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .homeBook-card img {
+        width: 90%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .homeBook-card {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .heroBanner {
+        max-width: 100%;
+    }
+
+    .promotions {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        justify-content: center;
     }
 
     .promo-card {
@@ -147,18 +193,45 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
+
+    .heroBanner {
+        max-width: 100%;
+    }
     
     .homeBooks-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
     .homeBook-card {
-        width: 90%;
+        width: 75%;
     }
 
     .promotions {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         height: auto;
+        width: 100%;
+    }
+
+    .promo-card {
+        width: 80%;
+    }
+
+}
+
+@media (min-width: 1440px) and (max-width: 1979px) {
+
+    .heroBanner {
+        display: none;
+    }
+    
+    .homeBooks-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .homeBook-card {
+        width: 90%;
     }
 
     .promo-card {

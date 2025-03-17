@@ -34,7 +34,10 @@ export default function HomePage() {
 
     <div className="home-container">
 
+
       <Carousel />
+
+      <img src="img/heroBanner/books-1842306_1920.jpg" className="heroBanner"/>
 
       {/* Cartes promotions */}
 
