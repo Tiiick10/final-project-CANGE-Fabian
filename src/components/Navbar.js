@@ -54,10 +54,9 @@ export default function Navbar() {
         <div className="right-section">
           <FaPhoneAlt />
           <span>0485313406</span>
-          <FaHeart
-            className="fav-icon"
-            onClick={() => setIsFavoritesOpen(true)}
-          />
+          {user && (
+            <FaHeart className="fav-icon" onClick={() => setIsFavoritesOpen(true)} />
+          )}
         </div>
       </nav>
 

@@ -206,8 +206,9 @@
     }
 
     .book-image-container img {
-        width: 85%;
-    }
+        max-width: 300px;
+        min-height: 50vh;
+     }
 
     .book-info {
         text-align: center;
@@ -248,8 +249,8 @@
     }
 
     .book-image-container img {
-        width: 80%;
-        max-width: 250px;
+       max-width: 300px;
+       min-height: 50vh;
     }
 
     .book-info {
@@ -270,10 +271,15 @@
 
     .book-image-container img {
         max-width: 300px;
+        min-height: 50vh;
     }
 
     .book-details {
         display: block;
+    }
+
+    .detail-row {
+        margin-top: 20px;
     }
 }
 
@@ -285,6 +291,6 @@
 
     .book-image-container img {
         max-width: 350px;
-        height: 90vh;
+        min-height: 70vh;
     }
 }

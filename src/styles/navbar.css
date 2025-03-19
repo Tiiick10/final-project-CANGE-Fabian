@@ -331,6 +331,10 @@
     .menuAndLogo {
         width: 100%;
     }
+
+    .favorites-sidebar {
+        width: 275px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

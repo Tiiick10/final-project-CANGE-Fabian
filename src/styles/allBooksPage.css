@@ -470,7 +470,7 @@
 
     .list-view {
         flex-direction: column;
-        height: 100vh;
+        height: 60vh;
         width: 70%;
         align-items: center;
         justify-content: center;
