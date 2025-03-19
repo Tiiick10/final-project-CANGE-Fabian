@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchBooks } from "../../lib/api"
 import "../../styles/allBooksPage.css"
 import Link from "next/link"
-import { FaHeart, FaBook, FaStar, FaThLarge, FaList } from "react-icons/fa"
+import { FaHeart, FaBook, FaStar, FaThLarge, FaList, FaFilter, FaTimes } from "react-icons/fa"
 import { useFavorites } from "../../context/FavoritesContext"
 import { useAuth } from "../../context/AuthContext"
 import Loader from "@/components/Loader"
@@ -31,6 +31,7 @@ export default function AllBooksPage() {
   const [minRating, setMinRating] = useState(0)
   const [viewMode, setViewMode] = useState("grid")
   const [sortOrder, setSortOrder] = useState("rating-up")
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   if (isLoading) return <Loader />
   if (error) return <p>Erreur : {error.message}</p>
@@ -62,9 +63,17 @@ export default function AllBooksPage() {
           viewMode === "list" ? "detail-view" : "grid-view"
         }`}
       >
+
+        {/* Bouton filtres mobile */}
+
+        <button className="filters-toggle-btn" onClick={() => setFiltersOpen(true)}>
+          
+          <FaFilter /> Filtres </button>
+
         {/* Barre latérale des filtres */}
 
-        <aside className="filters-sidebar">
+        <aside className={`filters-sidebar ${filtersOpen ? "open" : ""}`}>
+          <button className="c" onClick={() => setFiltersOpen(false)}><FaTimes/></button>
           <input
             type="text"
             placeholder="Search your book here"
@@ -75,20 +84,8 @@ export default function AllBooksPage() {
 
           <h3>Category {selectedCategory} </h3>
           <ul>
-            {[
-              "All",
-              "Classics",
-              "Fiction",
-              "Historical",
-              "Science Fiction",
-              "Fantasy",
-              "Young Adult",
-            ].map((category) => (
-              <li
-                key={category}
-                className={selectedCategory === category ? "active" : ""}
-                onClick={() => setSelectedCategory(category)}
-              >
+            {["All", "Classics", "Fiction", "Historical", "Science Fiction", "Fantasy", "Young Adult"].map((category) => (
+              <li key={category} className={selectedCategory === category ? "active" : ""} onClick={() => setSelectedCategory(category)}>
                 {category}
               </li>
             ))}

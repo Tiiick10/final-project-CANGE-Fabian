@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { useAuth } from "../context/AuthContext"
 import { useFavorites } from "../context/FavoritesContext"
-import { FaTimes, FaHeart, FaHeartBroken, FaBook, FaPhoneAlt, FaSearch } from "react-icons/fa"
+import { FaTimes, FaHeart, FaHeartBroken, FaBook, FaPhoneAlt, FaSearch,} from "react-icons/fa"
 import { CgMenuLeft } from "react-icons/cg";
 import "../styles/navbar.css"
 
@@ -55,7 +55,9 @@ export default function Navbar() {
           <FaPhoneAlt />
           <span>0485313406</span>
           {user && (
+            <>
             <FaHeart className="fav-icon" onClick={() => setIsFavoritesOpen(true)} />
+            </>
           )}
         </div>
       </nav>

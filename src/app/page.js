@@ -34,10 +34,12 @@ export default function HomePage() {
 
     <div className="home-container">
 
-
       <Carousel />
 
-      <img src="img/heroBanner/books-1842306_1920.jpg" className="heroBanner"/>
+      <div className="heroBanner-container">
+        <p>Bookshelf, your online library</p>
+        <img src="img/heroBanner/books-1842306_1920.jpg" className="heroBanner" />
+      </div>
 
       {/* Cartes promotions */}
 
@@ -92,7 +94,7 @@ export default function HomePage() {
 
       {visibleBooks < books.length && (
         <div className="load-more">
-          <button onClick={loadMoreBooks}>Charger plus</button>
+          <button onClick={loadMoreBooks}>Load More</button>
         </div>
       )}
 
