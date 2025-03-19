@@ -291,7 +291,9 @@
 
 @media (min-width: 1440px) and (max-width: 1979px) {
 
-    .heroBanner {
+    
+
+    .heroBanner, .heroBanner-container {
         display: none;
     }
     
