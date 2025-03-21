@@ -641,6 +641,10 @@
         bottom: -7%;
         left: 5%;
     }
+
+    .c {
+        display: none;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
@@ -652,12 +656,16 @@
     }
 
     .filters-sidebar {
-        min-width: 15%;
+        min-width: 25%;
     }
 
     .sort-and-view {
         gap: 50%;
         padding-right: 10%;
+    }
+
+    .c {
+        display: none;
     }
 
 }
@@ -675,5 +683,9 @@
 
     .book-overlay {
        bottom: 1%;
+    }
+
+    .c {
+        display: none;
     }
 }
